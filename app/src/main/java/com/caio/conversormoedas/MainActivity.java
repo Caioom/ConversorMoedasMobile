@@ -44,8 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textDolar = findViewById(R.id.text_dolar);
         this.mViewHolder.textEuro = findViewById(R.id.text_euro);
         this.mViewHolder.buttonCalculate = findViewById(R.id.button_calculate);
+        this.mViewHolder.buttonClear = findViewById(R.id.button_clear);
 
         this.mViewHolder.buttonCalculate.setOnClickListener(this);
+        this.mViewHolder.buttonClear.setOnClickListener(this);
         this.clearValues();
     }
 
@@ -88,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.mViewHolder.textDolar.setText(String.format("%.2f", (real / bid_dolar)));
                 this.mViewHolder.textEuro.setText(String.format("%.2f", (real / bid_euro)));
             }
+        } else {
+            this.mViewHolder.editValue.setText("");
+            clearValues();
         }
     }
 
@@ -102,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView textDolar;
         TextView textEuro;
         Button buttonCalculate;
+        Button buttonClear;
     }
 
 }
